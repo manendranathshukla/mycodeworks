@@ -25,4 +25,18 @@ public class CategoryService {
 		return categRepo.save(cat);
 	}
 
+
+	public boolean deleteCategoryById(Integer id) {
+		// Check if the state exists in the database
+        try {
+		if(categRepo.existsById(id)) {
+			categRepo.deleteById(id);
+            return true;
+        }
+        return false;
+        }catch(Exception e){
+        	return false;
+        }
+	}
+
 }
